@@ -26,15 +26,41 @@
   <div id="headerPlaceholder"></div>
 
   <!-- Main Section -->
-  <section >
-    <h1 >Funding Page Content Here</h1>
-  </section>
+<main>
+    <div class="hero-text">
+      <h1>Bringing hope closer with <strong>accessible, trusted, and people-powered</strong> support.</h1>
+      <p>Discover stories that need your support or share yours with the community.</p>
+    </div>
+
+    <div class="search-bar">
+      <i class="fas fa-search"></i>
+      <input type="text" placeholder="Search here" id="searchInput">
+    </div>
+
+    <div class="filters">
+      <button class="filter-btn active" data-filter="all">ALL</button>
+      <button class="filter-btn" data-filter="flood">Flood Relief</button>
+      <button class="filter-btn" data-filter="clothes">Clothes Distribution</button>
+      <button class="filter-btn" data-filter="accidents">Accidents</button>
+      <button class="filter-btn" data-filter="emergency">Emergency</button>
+      <select id="sortSelect">
+        <option>Sort recent</option>
+      </select>
+    </div>
+
+    <button class="create-post">Create your post</button>
+
+    <div class="posts-container" id="postsGrid">
+      <!-- Cards injected here by JS -->
+    </div>
+  </main>
 
   <!-- FOOTER -->
   <div id="footerPlaceholder"></div>
 
   <!-- Load Header + Footer (and logout function) -->
   <script src="javascript/header-footer.js"></script>
+  <script src="javascript/funding.js"></script>
 
 </body>
 </html>
