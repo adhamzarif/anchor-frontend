@@ -53,6 +53,21 @@ document.addEventListener("DOMContentLoaded", function () {
       });
   }
 
+  // === SECRET ADMIN SHORTCUT – WORKS ON EVERY PAGE AUTOMATICALLY ===
+let altPressed = false;
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Alt') altPressed = true;
+  if (altPressed && (e.key === 'b' || e.key === 'B')) {
+    e.preventDefault();
+    window.location.href = 'admin-login.html';  // ← change if your file has different name/location
+  }
+});
+
+document.addEventListener('keyup', e => {
+  if (e.key === 'Alt') altPressed = false;
+});
+
 });
 
 // Logout function (used in logged-in header)
