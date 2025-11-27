@@ -5,7 +5,7 @@ my-project-frontend/
 │
 ├── index.html
 ├── login.html
-├── register.html
+├── signup.html
 ├── dashboard.html
 │
 ├── css/
