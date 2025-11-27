@@ -52,6 +52,7 @@ nav ul {
   list-style: none;
 }
 
+
 nav a {
   color: white;
   text-decoration: none;
@@ -64,6 +65,21 @@ nav a:hover {
   border-bottom: 2px solid var(--primary);
   padding-bottom: 4px;
 }
+
+/* Smooth transition for active page */
+nav a {
+  border-bottom: 2px solid transparent;
+  transition: 
+    color 0.3s ease,
+    border-bottom-color 0.3s ease;
+}
+
+nav a.active {
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+}
+
+
 
 .user-section {
   display: flex;

@@ -1,3 +1,13 @@
+/* Page fade animation */
+body {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+body.fade-in {
+  opacity: 1;
+}
+
 
 .contact-hero {
   background: var(--bg-dark); 
