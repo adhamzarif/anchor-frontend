@@ -4,40 +4,132 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Page Title - Anchor</title>
-
-  <!-- Favicon -->
-  <link rel="icon" href="images/icons/favicon.png">
-
-  <!-- Fonts & Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-
-  <!-- Main Styles -->
-  <link rel="stylesheet" href="styles/index.css" />
+  <title>Anchor - Community Loans</title>
   <link rel="stylesheet" href="styles/header-footer.css">
   <link rel="stylesheet" href="styles/loan.css" />
-  <!-- Add page-specific CSS here if needed -->
-  <!-- <link rel="stylesheet" href="styles/dashboard.css"> -->
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 
 <body>
 
-  <!-- HEADER -->
+
+  <!-- Header -->
   <div id="headerPlaceholder"></div>
+  <!-- Top Navigation -->
 
-  <!-- Main Section -->
 
-  <section>
-    <h1>Loan Page Content Here</h1>
-  </section>
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="profile-card">
+        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Profile" class="profile-img" />
+        <div class="profile-info">
+          <p>User Name: Eli_user</p>
+          <button class="profile-btn">User Profile</button>
+        </div>
+      </div>
+    </aside>
 
-  <!-- FOOTER -->
-  <div id="footerPlaceholder"></div>
+    <!-- Main Content -->
+    <main class="main-content">
+      <section class="hero">
+        <h1>Empowering you with accessible, transparent, and<br><strong>community-backed loans.</strong></h1>
+        <p>Search for loan categories or create a new request to get started.</p>
 
-  <!-- Load Header + Footer (and logout function) -->
+        <div class="search-bar">
+          <i class="fas fa-search"></i>
+          <input type="text" placeholder="Search here">
+        </div>
+
+        <div class="categories">
+          <button class="cat-btn active">College</button>
+          <button class="cat-btn">Hospital</button>
+          <button class="cat-btn">Business</button>
+          <button class="cat-btn">Emergency</button>
+          <button class="cat-btn">Other</button>
+        </div>
+
+        <button class="create-request-btn">
+          <i class="fas fa-edit"></i> Request for loan
+        </button>
+      </section>
+
+      <!-- Loan Requests -->
+      <section class="loan-requests">
+        <!-- Card 1 -->
+        <div class="loan-card">
+          <div class="loan-header">
+            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Eli_user" class="avatar" />
+            <div>
+              <strong>User Name: Eli_user</strong>
+              <span class="category-tag">College</span>
+            </div>
+          </div>
+          <div class="loan-details">
+            <p><strong>Reason:</strong> My family is currently facing a critical situation, especially financially. The
+              main earning member of our family was recently involved in an accident...</p>
+            <p><strong>Amount needed:</strong> 5000 taka</p>
+            <p><strong>Loan duration:</strong> 5 months</p>
+            <p><strong>Repayment option:</strong> Installments</p>
+            <p><strong>Given document:</strong> Academic Registration Invoice</p>
+          </div>
+          <div class="document-preview">
+            <img src="https://via.placeholder.com/600x800/2c3e50/00bfa5?text=Invoice+5000+BDT" alt="Invoice" />
+          </div>
+          <div class="loan-actions">
+            <!-- Buttons grouped on the left -->
+            <div class="button-group">
+              <button class="btn-view">View Image</button>
+              <button class="btn-offer">Make offer</button>
+              <button class="btn-rating">Submit Rating</button>
+            </div>
+
+            <!-- Stats pushed to the right -->
+            <div class="stats">Accepted: 0 <span>|</span> Response: 3</div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="loan-card">
+          <div class="loan-header">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="David" class="avatar" />
+            <div>
+              <strong>User Name: David_Miller</strong>
+              <span class="category-tag">Business</span>
+            </div>
+          </div>
+          <div class="loan-details">
+            <p><strong>Reason:</strong> I am in the process of starting a small clothing business and require investment
+              to begin operations...</p>
+            <p><strong>Amount needed:</strong> 10000 taka</p>
+            <p><strong>Loan duration:</strong> 5 months</p>
+            <p><strong>Repayment option:</strong> Installments</p>
+            <p><strong>Given Document:</strong> Business License</p>
+          </div>
+          <div class="document-preview">
+            <img src="https://via.placeholder.com/600x800/e8c18f/8b4513?text=Business+License" alt="License" />
+          </div>
+          <div class="loan-actions">
+            <!-- Buttons grouped on the left -->
+            <div class="button-group">
+              <button class="btn-view">View Image</button>
+              <button class="btn-offer">Make offer</button>
+              <button class="btn-rating">Submit Rating</button>
+            </div>
+
+            <!-- Stats pushed to the right -->
+            <div class="stats">Accepted: 0 <span>|</span> Response: 3</div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer>© 2025 Team Syntax_Error. All rights reserved.</footer>
+
+  <script src="javascript/loan.js"></script>
   <script src="javascript/header-footer.js"></script>
-
 </body>
 
 </html>
