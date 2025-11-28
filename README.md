@@ -65,7 +65,42 @@ Backend (Separate Server)
 Frontend Folder Structure
 =========================
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   ANCHOR-FRONTEND/  ├── images/  │  ├── includes/  │   ├── footer.html  │   ├── header.html  │   └── header-loggedin.html  │  ├── javascript/  │   ├── admin-shortcut.js  │   ├── funding.js  │   ├── header-footer.js  │   ├── index.js  │   └── loan.js  │  ├── styles/  │   ├── auth.css  │   ├── contact.css  │   ├── funding.css  │   ├── header-footer.css  │   ├── index.css  │   └── loan.css  │  ├── admin-dashboard.html  ├── admin-login.html  ├── contact.html  ├── funding.html  ├── index.html  ├── loan.html  ├── login.html  ├── signup.html  ├── README.md   `
+```
+anchor-frontend/
+├── images/
+│
+├── includes/
+│   ├── footer.html
+│   ├── header.html
+│   └── header-loggedin.html
+│
+├── javascript/
+│   ├── admin-shortcut.js
+│   ├── funding.js
+│   ├── header-footer.js
+│   ├── index.js
+│   └── loan.js
+│
+├── styles/
+│   ├── auth.css
+│   ├── contact.css
+│   ├── funding.css
+│   ├── header-footer.css
+│   ├── index.css
+│   └── loan.css
+│
+├── admin-dashboard.html
+├── admin-login.html
+├── contact.html
+├── funding.html
+├── index.html
+├── loan.html
+├── login.html
+├── signup.html
+├── README.md
+
+
+```
 
 Platform Features and Student Benefits
 ======================================
