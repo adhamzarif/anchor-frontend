@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Donate Now — Fit 507x674</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    
+    body{
+      font-family:'Inter',sans-serif;
+      background:#000;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      min-height:100vh;
+      padding:12px;
+    }
+
+    .container{
+      width:507px;
+      height:674px;
+      background:#0F2D2E;
+      border-radius:8px;
+      overflow:hidden;
+      box-shadow:0 10px 40px rgba(0,0,0,0.6);
+      position:relative;
+      padding:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .frame-inner{
+      width:440px;
+      transform-origin:top center;
+      transition:transform 160ms ease, margin-top 160ms ease;
+      margin-left:auto;
+      margin-right:auto;
+    }
+
+    .header{
+      color:#70C1BF;
+      text-align:center;
+      padding:20px 0 10px 0;
+      font-size:26px;
+      font-weight:700;
+    }
+
+    .amount-section{
+      color:#70C1BF;
+      font-size:16px;
+      display:flex;
+      align-items:center;
+      gap:12px;
+      justify-content:center;
+      padding:6px 0 10px 0;
+    }
+    .amount-section label{min-width:68px; text-align:right; display:inline-block; padding-right:6px;}
+    #amount{
+      width:150px;
+      height:36px;
+      text-align:center;
+      background:#fff;
+      border:2px solid #70C1BF;
+      border-radius:6px;
+      color:#000;
+      font-size:15px;
+      font-weight:600;
+    }
+
+    .payment-title{
+      color:#70C1BF;
+      text-align:center;
+      font-size:20px;
+      font-weight:700;
+      padding:12px 0;
+    }
+
+    .tabs{
+      display:flex;
+      width:100%;
+      margin:0 0 0 0;
+      border-bottom: none;
+    }
+    .tab{
+      flex:1;
+      padding:10px 8px;
+      text-align:center;
+      background:#3C979A;
+      color:#fff;
+      font-weight:700;
+      cursor:pointer;
+      border-top-left-radius:6px;
+      border-top-right-radius:6px;
+      border:1px solid rgba(0,0,0,0.06);
+      box-shadow:inset 0 -2px rgba(0,0,0,0.06);
+      font-size:14px;
+    }
+    .tab + .tab{ margin-left:2px }
+    .tab:nth-child(2){ background:#20595B }
+    .tab.active{ background:#70C1BF; color:#0F2D2E }
+
+    .content{
+      background:#fff;
+      padding:16px;
+      border-radius:0 0 6px 6px;
+      margin-top:-2px;
+      min-height:260px;
+      box-shadow:0 0 0 2px rgba(0,0,0,0.02) inset;
+    }
+
+    .tab-content{ display:none }
+    .tab-content.active{ display:block }
+
+    .card-logos{ height:34px; margin-bottom:12px; display:block }
+
+    input[type="text"]{
+      width:100%;
+      height:42px;
+      margin:10px 0;
+      padding:0 12px;
+      border:1.6px solid #ddd;
+      border-radius:6px;
+      font-size:14px;
+    }
+
+    .row{ display:flex; gap:10px }
+    .row>div{ flex:1 }
+
+    .checkbox{
+      margin:10px 0 6px 0;
+      display:flex;
+      align-items:center;
+      gap:8px;
+      font-size:13px;
+    }
+
+    .terms{ font-size:13px; color:#444; margin-top:6px }
+    .terms a{ color:#0f8f8f; text-decoration:underline; font-weight:600 }
+
+    .error{ color:#f44336; font-size:12px; margin-top:4px; display:none }
+
+    .mobile-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+      margin-top:6px;
+      align-items:center;
+      justify-items:center;
+      padding:6px 0 2px 0;
+    }
+
+    .logo{
+      width:88px;
+      height:64px;
+      background:#f6f6f6 center/contain no-repeat;
+      border-radius:8px;
+      cursor:pointer;
+      border:3px solid transparent;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      transition:transform .18s ease, box-shadow .18s ease;
+    }
+    .logo:hover{ transform:translateY(-4px) }
+    .logo.selected{ border-color:#70C1BF; box-shadow:0 0 14px rgba(112,193,191,0.32) }
+
+    .center{ text-align:center; margin-top:10px }
+
+    .pay-button{
+      width:100%;
+      height:54px;
+      background:#70C1BF;
+      color:#0F2D2E;
+      font-size:20px;
+      font-weight:700;
+      border:none;
+      cursor:not-allowed;
+      opacity:0.9;
+      border-radius:6px;
+      margin-top:12px;
+    }
+    .pay-button.enabled{ cursor:pointer; opacity:1 }
+
+    @media (max-width:520px){
+      .frame-inner{ width:420px }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="frame-inner">
+      <h1 class="header">Donate Info</h1>
+
+      <div class="amount-section">
+        <label for="amount">Amount:</label>
+        <input type="text" id="amount" value="10000.00" readonly>
+      </div>
+
+      <div class="payment-title">Payment method</div>
+
+      <div class="tabs">
+        <div class="tab active" data-tab="cards">Cards</div>
+        <div class="tab" data-tab="mobile">Mobile Banking</div>
+      </div>
+
+      <div class="content">
+        <div id="cards" class="tab-content active">
+          <div class="card-logo-row-inline" style="display:inline-flex;gap:12px;align-items:center;margin:8px 0 18px 12px;">
+            <img src="images/df_ae.png" class="card-logos" alt="AE" style="height:22px;">
+            <img src="images/df_mastercard.png" class="card-logos" alt="Mastercard" style="height:22px;">
+            <img src="images/df_visa.png" class="card-logos" alt="Visa" style="height:22px;">
+          </div>
+
+          <input type="text" id="cardNumber" placeholder="Card Number" maxlength="19">
+          <div class="row">
+            <div><input type="text" id="expiry" placeholder="MM/YY" maxlength="5"></div>
+            <div><input type="text" id="cvv" placeholder="CVC/CVV" maxlength="4"></div>
+          </div>
+          <input type="text" id="cardName" placeholder="Card Holder">
+
+          <div class="checkbox">
+            <input type="checkbox" id="remember"><label for="remember">Remember Card</label>
+          </div>
+
+          <p class="terms">By checking this box you agree to the <a href="#">Terms of Services</a></p>
+        </div>
+
+        <div id="mobile" class="tab-content">
+          <div class="mobile-grid">
+            <div class="logo nagad" style="background-image:url('images/df_nagat.png'); background-size:contain;"></div>
+            <div class="logo nexus" style="background-image:url('images/df_dbbl.png'); background-size:contain;"></div>
+            <div class="logo bkash" style="background-image:url('images/df_bkash.png'); background-size:contain;"></div>
+            <div class="logo rocket" style="background-image:url('images/df_rocket.png'); background-size:contain;"></div>
+            <div class="logo upay" style="background-image:url('images/df_upai.png'); background-size:contain;"></div>
+          </div>
+          <div class="error center" id="mobileError" style="display:none">Please select a provider</div>
+        </div>
+      </div>
+
+      <button id="payBtn" class="pay-button disabled">Pay 10000.00</button>
+    </div>
+  </div>
+
+  <!-- ONLY THIS LINE ADDED — EVERYTHING ELSE 100% SAME -->
+  <script src="javascript/Donate_Info.js"></script>
+</body>
+</html>
