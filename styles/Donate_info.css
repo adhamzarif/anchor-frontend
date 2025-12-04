@@ -1,0 +1,330 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+/* ---------------------------
+   Global reset & base
+   --------------------------- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #000000;              /* Frame background is BLACK */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* ---------------------------
+   Main container & header
+   --------------------------- */
+.container {
+  width: 507px;
+  background: #0F2D2E;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+}
+
+.header {
+  background: #0F2D2E;
+  color: #70C1BF;
+  text-align: center;
+  padding: 28px;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+/* ---------------------------
+   Payment title & amount box
+   --------------------------- */
+.payment-title {
+  color: #70C1BF;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: normal;
+  padding: 20px 0 16px 0;
+  background: transparent;
+}
+
+.amount-section {
+  /* Reserve a fixed space so layout doesn't jump between tabs */
+  height: 120px;
+  padding: 20px;
+  text-align: center;
+  color: #70C1BF;
+  font-size: 22px;
+  box-sizing: border-box;
+}
+
+#amount {
+  width: 220px;
+  height: 48px;
+  margin-top: 10px;
+  text-align: center;
+  background: #FFFFFF;              /* WHITE background */
+  border: 2px solid #70C1BF;
+  border-radius: 8px;
+  color: #000000;                   /* Black text on white */
+  font-size: 20px;
+  font-weight: 600;
+  box-sizing: border-box;
+}
+
+/* ---------------------------
+   Tabs (visual)
+   --------------------------- */
+.tabs {
+  display: flex;
+  gap: 0;
+  align-items: stretch;
+}
+
+.tab {
+  flex: 1;
+  padding: 16px;
+  text-align: center;
+  background: #3C979A;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+  user-select: none;
+}
+
+.tab:nth-child(2) {
+  background: #20595B;
+}
+
+.tab.active {
+  background: #70C1BF;
+  color: #0F2D2E;
+}
+
+/* ---------------------------
+   Content area (fixed-size + stacked panes)
+   --------------------------- */
+.content {
+  position: relative;    /* positioning context for tab panes */
+  height: 392px;         /* fixed height to prevent reflow (tweak if needed) */
+  display: block;
+  padding: 20px 16px;
+  overflow: hidden;      /* hide pane overflow when stacked */
+  box-sizing: border-box;
+}
+
+/* Each tab pane is stacked exactly on top of each other */
+.tab-content {
+  position: absolute;
+  inset: 0;                      /* top:0; right:0; bottom:0; left:0; */
+  display: flex;                 /* keeps internal flex layout */
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px 0;               /* internal spacing for pane content */
+  box-sizing: border-box;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .18s ease, visibility .18s ease;
+}
+
+/* visible pane */
+.tab-content.active {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* If a particular tab needs a different alignment, override with an id or class */
+#mobile { justify-content: flex-start; }
+
+/* Allow internal scrolling if content is larger than fixed pane */
+.tab-content.scrollable {
+  overflow-y: auto;
+  padding-right: 8px; /* give some space for scrollbar */
+}
+
+/* ---------------------------
+   Mobile grid & logos
+   --------------------------- */
+.mobile-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-top: 20px;
+  min-height: 180px; /* reserve vertical space so logos won't push other elements */
+}
+
+/* precise, consistent logo sizing */
+.logo {
+  width: 160px;
+  height: 160px;
+  min-width: 160px;
+  min-height: 160px;
+  max-width: 160px;
+  max-height: 160px;
+  aspect-ratio: 1 / 1;
+  background: #f0f0f0 center/cover no-repeat;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform .18s ease, box-shadow .18s ease, border .18s ease;
+  border: 4px solid transparent;
+  box-sizing: border-box;
+}
+
+.logo.selected {
+  border: 4px solid #70C1BF;
+  box-shadow: 0 0 20px rgba(112,193,191,0.5);
+}
+
+/* Example background images — replace URLs with your assets */
+.nagad   { background-image: url('../images/df_nagat.png'); }
+.nexus   { background-image: url('../images/df_dbbl.png'); }
+.bkash   { background-image: url('../images/df_bkash.png'); }
+.rocket  { background-image: url('../images/df_rocket.png'); }
+.upay    { background-image: url('../images/df_upai.png'); }
+
+/* ---------------------------
+   Card logos area (fixed footprint)
+   --------------------------- */
+#cards { position: relative; min-height: 40px; box-sizing: border-box; }
+
+/* typical wrappers you might have: keep them inline-flex and non-disruptive */
+#cards > .card-logo-row,
+#cards .card-logo-row,
+#cards .card-logo-row-inline {
+  display: inline-flex !important;
+  gap: 12px !important;
+  align-items: center !important;
+  margin: 8px 0 18px 12px !important;
+  pointer-events: none; /* decorative only — remove if clickable */
+}
+
+/* images inside the card rows */
+#cards .card-logo-row img.card-logos,
+#cards .card-logo-row-inline img.card-logos {
+  display: block !important;
+  height: 22px !important;
+  width: auto !important;
+  max-width: none !important;
+  margin: 0 !important;
+  object-fit: contain !important;
+}
+
+/* ---------------------------
+   Form fields & inputs
+   --------------------------- */
+input[type="text"],
+input[type="tel"],
+input[type="email"] {
+  width: 100%;
+  height: 52px;
+  margin: 12px 0;
+  padding: 0 16px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: 0.3s;
+  box-sizing: border-box;
+}
+
+input.valid {
+  border-color: #4CAF50 !important;
+}
+
+input.invalid {
+  border-color: #f44336 !important;
+}
+
+/* rows */
+.row {
+  display: flex;
+  gap: 16px;
+}
+
+.row > div {
+  flex: 1;
+}
+
+/* checkbox & terms */
+.checkbox {
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+}
+
+.terms {
+  font-size: 14px;
+  color: #555;
+}
+
+.terms a {
+  color: #70C1BF;
+  text-decoration: underline;
+}
+
+/* errors */
+.error {
+  color: #f44336;
+  font-size: 13px;
+  margin-top: 5px;
+  display: none;
+  text-align: left;
+}
+
+/* center area and pay button */
+.center {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.pay-button {
+  width: 100%;
+  height: 64px;
+  background: #70C1BF;
+  color: #0F2D2E;
+  font-size: 24px;
+  font-weight: 700;
+  border: none;
+  cursor: not-allowed;
+  opacity: 0.6;
+  transition: 0.4s;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+.pay-button.enabled {
+  opacity: 1;
+  cursor: pointer;
+}
+
+/* ---------------------------
+   Accessibility & small tweaks
+   --------------------------- */
+.tab:focus,
+.logo:focus,
+.pay-button:focus {
+  outline: 3px solid rgba(112,193,191,0.25);
+  outline-offset: 2px;
+}
+
+/* optional helper: make logos clickable if needed */
+#cards .card-logo-row,
+#cards .card-logo-row-inline {
+  pointer-events: auto; /* enable clicking if you want */
+}
+
+/* If you ever want to allow inner pane scrolling without changing layout, add this in HTML:
+   <div class="tab-content scrollable"> ... </div>
+*/
+
+/* End of stylesheet */
