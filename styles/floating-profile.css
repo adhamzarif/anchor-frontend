@@ -1,0 +1,81 @@
+
+    :root {
+      --bg-dark: #0f242e;
+      --primary: #00d4c2;
+      --text-light: rgba(255, 255, 255, 0.75);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+
+
+.box-body {
+  position: fixed;
+  bottom: 20px;
+  left: 200px;
+
+  background-color: #0f242e;
+  height: fit-content;
+  width: fit-content;
+  border-radius: 50px;
+
+  /* Border */
+  border: 2px solid white; 
+
+  display: flex;
+  
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 30px;
+
+  /* Glow effect */
+  box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.7); 
+  z-index: 9999; 
+}
+
+
+    .inner-box {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .view-profile-btn {
+      padding: 0.6rem 1.4rem;
+      border-radius: 50px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all .3s;
+      background-color: var(--primary);
+      color: var(--bg-dark);
+
+      border-style: solid;
+      border-color: white;
+
+    }
+
+    .view-profile-btn:hover {
+      background-color: #229289;
+      
+      
+    }
+
+    .user-name {
+      font-size: 19px;
+      font-weight: bold;
+      color: white;
+    }
+
+    .user-photo {
+      height: 50px;
+      width: 50px;
+      object-fit: cover;
+      border-radius: 25px;
+
+    }
