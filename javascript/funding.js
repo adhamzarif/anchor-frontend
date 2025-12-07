@@ -53,14 +53,58 @@ document.getElementById('searchInput').addEventListener('input', e => {
   });
 });
 
-// ---------------------
-// DONATE BUTTONS: OPEN PAYMENT MODAL
-// ---------------------
-document.querySelectorAll('.donate-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-        // Optional: pass amount from button data-attribute
-        const amount = btn.dataset.amount ? Number(btn.dataset.amount) : 10000;
-        openPaymentModal(amount);
+// funding-payment-integration.js - Simple integration for donate buttons
+
+document.addEventListener('DOMContentLoaded', function() {
+  
+  // Get all donate buttons
+  const donateButtons = document.querySelectorAll('.donate-btn');
+  
+  // Add click event to each donate button
+  donateButtons.forEach(button => {
+    button.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      // Get the card element
+      const card = this.closest('.card');
+      
+      // Get the goal amount from this specific card
+      const goalAmountElement = card.querySelector('.goal-amount');
+      let amount = '10000.00'; // Default amount
+      
+      if (goalAmountElement) {
+        // Extract amount from text (remove currency symbol)
+        const goalText = goalAmountElement.textContent.trim();
+        amount = goalText.replace(/[^0-9.]/g, ''); // Remove non-numeric characters except decimal
+        
+        // If no decimal, add .00
+        if (!amount.includes('.')) {
+          amount = amount + '.00';
+        }
+      }
+      
+      // Show payment overlay
+      showPaymentOverlay(amount);
     });
+  });
+  
+  // Function to show payment overlay
+  function showPaymentOverlay(amount) {
+    const overlay = document.getElementById('paymentOverlay');
+    
+    if (overlay) {
+      // Update amount
+      const amountInput = overlay.querySelector('#amount');
+      const payAmountSpan = overlay.querySelector('#payAmount');
+      
+      if (amountInput) amountInput.value = amount;
+      if (payAmountSpan) payAmountSpan.textContent = amount;
+      
+      // Show overlay
+      overlay.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+  }
+  
 });
 
