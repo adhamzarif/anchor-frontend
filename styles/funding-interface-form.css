@@ -1,5 +1,7 @@
-
-
+/* ===================================
+   Modern Form Style - Dark Teal Theme
+   Clean, reusable, NO global input override
+   =================================== */
 
 * {
     margin: 0;
@@ -8,24 +10,23 @@
 }
 
 body {
-    font-family: 'Roboto', sans-serif; 
+    font-family: 'Roboto', sans-serif;
     background: #0a1f2f;
     min-height: 100vh;
-   
-   
+    color: #e0f0f0;
 }
 
 .container {
     max-width: 800px;
     margin: 0 auto;
+    padding: 20px;
 }
 
 h1 {
     color: #7dd3d3;
     text-align: center;
     font-size: 30px;
-    margin-top: 10px;
-    margin-bottom: 30px;
+    margin: 10px 0 30px;
     font-weight: 700;
 }
 
@@ -52,28 +53,75 @@ h1 {
     color: #ff6b6b;
 }
 
-/* Dropdown */
-.dropdown {
-    width: 200px;
-    padding: 10px 15px;
-    background-color: #7dd3d3;
-    border: none;
-    border-radius: 20px;
-    font-size: 1rem;
-    cursor: pointer;
-    appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%230a2e2e' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 10px center;
-    padding-right: 35px;
+/* Category Section */
+.category-section {
+    margin-bottom: 30px;
 }
 
-/* Input Fields */
-input[type="text"],
-input[type="number"],
-input[type="tel"],
-input[type="url"],
-textarea {
+.category-label {
+    color: #e0f0f0;
+    font-size: 1.1rem;
+    font-weight: 400;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.category-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+
+.category-btn {
+    background-color: #7dd3d3;
+    color: #0a2e2e;
+    border: none;
+    padding: 8px 22px;
+    border-radius: 18px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.category-btn:hover {
+    background-color: #6bc4c4;
+    transform: translateY(-1px);
+}
+
+.category-btn.active {
+    background-color: #5ab8b8;
+    box-shadow: 0 2px 8px rgba(125, 211, 211, 0.3);
+}
+
+.custom-input {
+    width: 120px;
+    padding: 8px 12px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 5px;
+    font-size: 0.85rem;
+    font-family: inherit;
+    color: #333;
+}
+
+#title {
+     width: 100%;
+    padding: 12px 15px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: inherit;
+    color: #333;
+}
+
+/* Main full-width inputs - now targeted by class instead of type */
+.full-width-input,
+.inline-field input,
+textarea,
+.nid-upload input[type="text"] {
     width: 100%;
     padding: 12px 15px;
     background-color: rgba(255, 255, 255, 0.9);
@@ -81,18 +129,19 @@ textarea {
     border-radius: 5px;
     font-size: 1rem;
     font-family: inherit;
+    color: #333;
 }
 
 textarea {
     resize: vertical;
+    min-height: 100px;
 }
 
-input::placeholder,
-textarea::placeholder {
+::placeholder {
     color: #999;
 }
 
-/* Inline Groups */
+/* Inline Fields */
 .inline-group {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -106,6 +155,7 @@ textarea::placeholder {
 }
 
 .inline-field.full-width {
+    grid-column: 1 / -1;
     margin-top: 10px;
 }
 
@@ -115,11 +165,7 @@ textarea::placeholder {
     margin-bottom: 5px;
 }
 
-.inline-field input {
-    flex: 1;
-}
-
-/* Checkboxes and Radio Buttons */
+/* Checkboxes & Radios */
 .checkbox-group,
 .radio-group {
     margin-top: 10px;
@@ -154,22 +200,23 @@ textarea::placeholder {
 .other-input {
     width: 150px;
     padding: 8px 12px;
-}
-
-.radio-group label {
-    color: #a0c4c4;
-    display: block;
-    margin-bottom: 8px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    color: #333;
 }
 
 .radio-options {
     display: flex;
     gap: 30px;
     margin-top: 10px;
+    flex-wrap: wrap;
 }
 
 .extra-funds {
     margin-top: 20px;
+    display: flex;
     flex-direction: column;
     align-items: flex-start;
 }
@@ -179,7 +226,6 @@ textarea::placeholder {
     font-size: 1.15rem;
     font-weight: 700;
     margin-bottom: 10px;
-    display: block;
 }
 
 /* Fund Breakdown */
@@ -212,9 +258,13 @@ textarea::placeholder {
 .breakdown-item input {
     padding: 8px 10px;
     font-size: 0.9rem;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 4px;
+    color: #333;
 }
 
-.breakdown-item .remove-btn {
+.remove-btn {
     background-color: #ff6b6b;
     color: white;
     border: none;
@@ -224,7 +274,7 @@ textarea::placeholder {
     font-size: 0.85rem;
 }
 
-.breakdown-item .remove-btn:hover {
+.remove-btn:hover {
     background-color: #ff5252;
 }
 
@@ -236,6 +286,7 @@ textarea::placeholder {
     border-radius: 5px;
     cursor: pointer;
     font-size: 1rem;
+    margin-top: 10px;
 }
 
 .add-btn:hover {
@@ -249,7 +300,7 @@ textarea::placeholder {
     gap: 15px;
     margin-top: 15px;
     color: #a0c4c4;
-    
+    font-size: 1.1rem;
 }
 
 .total-section input {
@@ -257,9 +308,10 @@ textarea::placeholder {
     text-align: center;
     background-color: #E7EEEE;
     font-weight: 500;
-    color:  black(0,0,0,0.2);
-    
-
+    color: black;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
 }
 
 /* Upload Section */
@@ -268,9 +320,11 @@ textarea::placeholder {
     margin-left: 20px;
     margin-bottom: 15px;
     line-height: 1.8;
+    font-size: 0.95rem;
 }
 
-.upload-btn {
+.upload-btn,
+.change-btn {
     background-color: #7dd3d3;
     color: #0a2e2e;
     border: none;
@@ -279,45 +333,18 @@ textarea::placeholder {
     cursor: pointer;
     font-size: 1rem;
     font-weight: 500;
+    transition: background-color 0.3s;
 }
 
-.upload-btn:hover {
+.upload-btn:hover,
+.change-btn:hover {
     background-color: #6bc4c4;
-}
-
-/* Field Groups */
-.field-group {
-    margin-bottom: 15px;
-}
-
-.field-group label {
-    display: block;
-    color: #a0c4c4;
-    font-size: 0.95rem;
-    margin-bottom: 5px;
 }
 
 .nid-group .nid-upload {
     display: flex;
     gap: 10px;
-}
-
-.nid-upload input[type="text"] {
-    flex: 1;
-}
-
-.change-btn {
-    background-color: #7dd3d3;
-    color: #0a2e2e;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: 500;
-}
-
-.change-btn:hover {
-    background-color: #6bc4c4;
+    align-items: flex-end;
 }
 
 /* Confirmation */
@@ -325,14 +352,15 @@ textarea::placeholder {
     padding: 15px;
     background-color: rgba(255, 255, 255, 0.05);
     border-radius: 5px;
+    margin-bottom: 20px;
 }
 
 .confirmation-text {
     color: #ff6b6b;
     font-weight: 500;
+    line-height: 1.6;
 }
 
-/* Special styling for update commitment checkbox text */
 #updateCommitment + span {
     color: #ff6b6b;
 }
@@ -360,40 +388,53 @@ textarea::placeholder {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
     h1 {
         font-size: 2rem;
     }
-    
+
     .inline-group {
         grid-template-columns: 1fr;
     }
-    
-    .breakdown-header,
-    .breakdown-item {
-        grid-template-columns: 1fr;
-        gap: 5px;
-    }
-    
+
     .breakdown-header {
         display: none;
     }
-    
+
+    .breakdown-item {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
     .breakdown-item input {
         width: 100%;
     }
-    
-    .checkbox-group {
+
+    .checkbox-group,
+    .radio-options {
         flex-direction: column;
         align-items: flex-start;
+        gap: 12px;
     }
-    
+
     .total-section {
         flex-direction: column;
         align-items: stretch;
-        
+        gap: 10px;
     }
-    
+
     .total-section input {
+        width: 100%;
+    }
+
+    .nid-group .nid-upload {
+        flex-direction: column;
+    }
+
+    .change-btn {
         width: 100%;
     }
 }

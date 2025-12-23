@@ -17,14 +17,16 @@
         
         <form id="fundraiserForm">
             <!-- Category -->
-            <div class="form-group">
-                <select id="category" class="dropdown">
-                    <option value="">Category</option>
-                    <option value="education">Education</option>
-                    <option value="medical">Medical</option>
-                    <option value="community">Community</option>
-                    <option value="emergency">Emergency</option>
-                </select>
+            <div class="form-group category-section">
+                <label class="category-label">Category</label>
+                <div class="category-buttons">
+                    <button type="button" class="category-btn" data-category="education">Education</button>
+                    <button type="button" class="category-btn" data-category="medical">Medical</button>
+                    <button type="button" class="category-btn" data-category="community">Community</button>
+                    <button type="button" class="category-btn" data-category="emergency">Emergency</button>
+                    <button type="button" class="category-btn" data-category="custom">Custom</button>
+                    <input type="text" id="customCategory" class="custom-input" placeholder="Enter custom category">
+                </div>
             </div>
 
             <!-- 1. Fundraiser Title -->
